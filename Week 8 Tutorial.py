@@ -21,4 +21,81 @@ It has two fully dividing subsequences of length 5,
 2,11,16,12,36,60,71,17,29,144,288,129,432,993 and
 2,11,16,12,36,60,71,17,29,144,288,129,432,993
 and none of length 6 or greater.
+
+Solution hint
+Let the input be a1, a2, …, aN. Let us define Best(i) to be the length of longest dividing sequence in a1,a2,…ai that includes ai.
+Write an expression for Best(i) in terms of Best(j) with j<i, with base case Best(1) = 1. Solve this recurrence using dynamic
+programming.
+
+Input format
+The first line of input contains a single positive integer N indicating the length of the input sequence. Lines 2,…,N+1 contain
+one integer each. The integer on line i+1 is ai.
+
+Output format
+Your output should consist of a single integer indicating the length of the longest fully dividing subsequence of the input sequence.
+
+Test Data
+You may assume that N ≤ 2500.
+
+Example:
+Here are the inputs and outputs corresponding to the two examples discussed above.
+
+Sample input 1:
+9
+2 
+3 
+7 
+8 
+14 
+39 
+145 
+76 
+320
+Sample output 1:
+3
 '''
+#--------------My solution----------------------------
+n = int(input())
+given = []
+bestsol = []
+best_stored = []
+for x in range(n):
+  given.append(int(input()))
+  best_stored.append(0)
+
+best_stored[0] = 1
+
+for i in range(n):
+  maxval = 1
+  for j in range(i):
+    if given[i] % given[j] == 0:
+      maxval = max(maxval,(best_stored[j])+1)
+  best_stored[i] = maxval
+
+print(max(best_stored))
+
+#----------Solution by instructure-------------------
+def readinput():
+  n = int(input())     # Length
+  for j in range(n):   
+    nextnum = int(input())  # Read each value
+    insequence.append(nextnum)
+    best.append(0)     # Initialize best[k] for each position
+  return
+
+def solve():
+  for j in range(len(insequence)):
+    # Collect best[k] for values to left of j that divide insequence[j]
+    prev = [ best[k] for k in range(j) if insequence[j]%insequence[k] == 0 ]
+    if prev:
+       best[j] = 1 + max(prev)
+    else:
+       best[j] = 1
+
+insequence = []
+best = []
+readinput()
+solve()
+print(max(best))
+
+
