@@ -2,16 +2,21 @@
 Q1.
 We represent scores of batsmen across a sequence of matches in a two level dictionary as follows:
 
-   {'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 'player3':91}
-Each match is identified by a string, as is each player. The scores are all integers. The names associated with the matches are not fixed (here they are 'match1','match2','match3'), nor are the names of the players. A player need not have a score recorded in all matches.
+{'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 'player3':91}
+Each match is identified by a string, as is each player. The scores are all integers. The names associated with the matches are not
+fixed (here they are 'match1','match2','match3'), nor are the names of the players. A player need not have a score recorded in all 
+matches.
 
-Define a Python function orangecap(d) that reads a dictionary d of this form and identifies the player with the highest total score. Your function should return a pair (playername,topscore) where playername is a string, the name of the player with the highest score, and topscore is an integer, the total score of playername.
+Define a Python function orangecap(d) that reads a dictionary d of this form and identifies the player with the highest total score. 
+Your function should return a pair (playername,topscore) where playername is a string, the name of the player with the highest score, 
+and topscore is an integer, the total score of playername.
 
 The input will be such that there are never any ties for highest total score.
 
 For instance:
 
-  >>> orangecap({'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 'player3':91}})
+  >>> orangecap({'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 
+  'player3':91}})
 ('player3', 100)
 
   >>> orangecap({'test1':{'Ashwin':84, 'Kohli':120}, 'test2':{'ashwin':59, 'Pujara':42}})
@@ -44,7 +49,8 @@ def orangecap(d):
                 
 '''
 Q2
-Let us consider polynomials in a single variable x with integer coefficients: for instance, 3x4 - 17x2 - 3x + 5. Each term of the polynomial can be represented as a pair of integers (coefficient,exponent). The polynomial itself is then a list of such pairs.
+Let us consider polynomials in a single variable x with integer coefficients: for instance, 3x4 - 17x2 - 3x + 5. Each term of the 
+polynomial can be represented as a pair of integers (coefficient,exponent). The polynomial itself is then a list of such pairs.
 
 We have the following constraints to guarantee that each polynomial has a unique representation:
 
@@ -64,11 +70,15 @@ Write Python functions for the following operations:
   multpoly(p1,p2)
 that add and multiply two polynomials, respectively.
 
-You may assume that the inputs to these functions follow the representation given above. Correspondingly, the outputs from these functions should also obey the same constraints.
+You may assume that the inputs to these functions follow the representation given above. Correspondingly, the outputs from these 
+functions should also obey the same constraints.
 
-Hint: You are not restricted to writing just the two functions asked for. You can write auxiliary functions to "clean up" polynomials – e.g., remove zero coefficient terms, combine like terms, sort by exponent etc. Build a library of functions that can be combined to achieve the desired format.
+Hint: You are not restricted to writing just the two functions asked for. You can write auxiliary functions to "clean up" 
+polynomials – e.g., remove zero coefficient terms, combine like terms, sort by exponent etc. Build a library of functions that 
+can be combined to achieve the desired format.
 
-You may also want to convert the list representation to a dictionary representation and manipulate the dictionary representation, and then convert back.
+You may also want to convert the list representation to a dictionary representation and manipulate the dictionary representation,
+and then convert back.
 
 Some examples:
 
